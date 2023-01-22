@@ -1,0 +1,576 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="rgb(255,255,255)" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Essential NPM Packages for React Beginners &middot; Dylan Powers</title>
+    <meta name="title" content="Essential NPM Packages for React Beginners &middot; Dylan Powers" />
+  
+  <meta name="description" content="A collection of NPM packages which comprise an excellent toolset for beginners." />
+  
+  
+  
+  <link rel="canonical" href="https://dylanpowers.me/blog/essential-npm-packages-for-react-beginners/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.001c0d1efdb688490593281d28088c05f329dba8795ad1d0908855388581c32d591279cc3cef35e1fa6a2d34617ac0acd30cae7cefc0823bc53648d159eb782f.css"
+    integrity="sha512-ABwNHv22iEkFkygdKAiMBfMp26h5WtHQkIhVOIWBwy1ZEnnMPO814fpqLTRhesCs0wyufO/AgjvFNkjRWet4Lw=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.097ba0f9f952c4338661edbcd7abcb3fd57baa33459cf472a192ad7ef214f4cef34ac5c3a4efb0be066b70144cfdf16b1abef0ccb8f07b14a7bcf2a1c394e7bd.js" integrity="sha512-CXug&#43;flSxDOGYe2816vLP9V7qjNFnPRyoZKtfvIU9M7zSsXDpO&#43;wvgZrcBRM/fFrGr7wzLjwexSnvPKhw5TnvQ=="></script>
+  
+  
+  
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Essential NPM Packages for React Beginners" />
+<meta property="og:description" content="A collection of NPM packages which comprise an excellent toolset for beginners." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dylanpowers.me/blog/essential-npm-packages-for-react-beginners/" /><meta property="og:image" content="https://dylanpowers.me/blog/essential-npm-packages-for-react-beginners/featured.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-08-08T16:20:12-04:00" />
+<meta property="article:modified_time" content="2021-08-08T16:20:12-04:00" /><meta property="og:site_name" content="Dylan Powers" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dylanpowers.me/blog/essential-npm-packages-for-react-beginners/featured.png"/>
+<meta name="twitter:title" content="Essential NPM Packages for React Beginners"/>
+<meta name="twitter:description" content="A collection of NPM packages which comprise an excellent toolset for beginners."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "Essential NPM Packages for React Beginners",
+    "headline": "Essential NPM Packages for React Beginners",
+    
+    "abstract": "A collection of NPM packages which comprise an excellent toolset for beginners.",
+    "inLanguage": "en",
+    "url" : "https:\/\/dylanpowers.me\/blog\/essential-npm-packages-for-react-beginners\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Dylan Powers"
+    },
+    "copyrightYear": "2021",
+    "dateCreated": "2021-08-08T16:20:12-04:00",
+    "datePublished": "2021-08-08T16:20:12-04:00",
+    
+    "dateModified": "2021-08-08T16:20:12-04:00",
+    
+    "keywords": ["React","Frontend","Javascript","JSX","NPM"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "703"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="Dylan Powers" />
+  
+    
+      <link href="mailto:dylandpowers@gmail.com" rel="me" />
+    
+      <link href="https://github.com/dylandpowers" rel="me" />
+    
+      <link href="https://linkedin.com/in/dylandpowers25" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400"
+          >&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Dylan Powers</a
+  >
+
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/blog/"
+                  title=""
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Blog</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/tags/"
+                  title="Tags"
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Tags</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                
+                
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Essential NPM Packages for React Beginners
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2021-08-08 16:20:12 -0400 EDT">8 August 2021</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+      
+        <div class="prose">
+          <img
+            class="mb-6 -mt-4 rounded-md"
+            
+              
+                srcset=" /blog/essential-npm-packages-for-react-beginners/featured_hu3be38b2101949498b8c39f93177b38cd_1759_330x0_resize_box_3.png 330w,
+                /blog/essential-npm-packages-for-react-beginners/featured_hu3be38b2101949498b8c39f93177b38cd_1759_660x0_resize_box_3.png 660w, /blog/essential-npm-packages-for-react-beginners/featured_hu3be38b2101949498b8c39f93177b38cd_1759_1024x0_resize_box_3.png
+                1024w, /blog/essential-npm-packages-for-react-beginners/featured_hu3be38b2101949498b8c39f93177b38cd_1759_1320x0_resize_box_3.png 2x"
+                src="/blog/essential-npm-packages-for-react-beginners/featured_hu3be38b2101949498b8c39f93177b38cd_1759_660x0_resize_box_3.png"
+              
+            
+            alt=""
+          />
+          
+        </div>
+      
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      <div class="min-w-0 min-h-0 max-w-prose grow">
+        <p>When I was first starting out in React development, I had little to no knowledge about the ecosystem in general. Not knowing the necessary tools available in the ecosystem definitely led to increased time-to-completion for personal projects. In this post, I&rsquo;ll discuss NPM packages that I use every day in my personal React projects which have sped up development time drastically, and are great for beginners.</p>
+<h1 id="create-react-apphttpswwwnpmjscompackagecreate-react-app" class="relative group"><a href="https://www.npmjs.com/package/create-react-app"   target="_blank" rel="noreferrer noopener">create-react-app</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#create-react-apphttpswwwnpmjscompackagecreate-react-app" aria-label="Anchor">#</a></span></h1>
+<p>This is the #1 package out there for bootstrapping React applications. It allows you to create scaffolds for React applications with a simple command: <code>create-react-app &lt;project name&gt;</code>. This package is maintained by Facebook, so you can be sure that it will always contain the most recent optimizations.</p>
+<h1 id="antdhttpswwwnpmjscompackageantd" class="relative group"><a href="https://www.npmjs.com/package/antd"   target="_blank" rel="noreferrer noopener">antd</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#antdhttpswwwnpmjscompackageantd" aria-label="Anchor">#</a></span></h1>
+<p>The <code>antd</code> package, short for Ant Design, is a library of React components created by <a href="https://www.antgroup.com/en"   target="_blank" rel="noreferrer noopener">Ant Financial</a>
+. Creating UI components can be an extremely time consuming part of development, and self-created components don&rsquo;t make for a great user experience if you don&rsquo;t have great design skills (like myself).</p>
+<p><code>antd</code> provides simple, out-of-the-box components for everything from lists to tables to rating systems. Everything is standardized which makes for a <em>great</em> user experience, and you can even override the CSS variables using something like <a href="https://www.npmjs.com/package/craco"   target="_blank" rel="noreferrer noopener">craco</a>
+. I&rsquo;ve made several websites with <code>antd</code> components and I always have a great time using it.</p>
+<h1 id="styled-componentshttpsstyled-componentscom" class="relative group"><a href="https://styled-components.com/"   target="_blank" rel="noreferrer noopener">styled-components</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#styled-componentshttpsstyled-componentscom" aria-label="Anchor">#</a></span></h1>
+<p><code>styled-components</code> is a library for styling React components (or standard HTML elements) directly in your component file. By default, it exports a function <code>styled</code> which accepts a React component as an argument and applies extra styling on top of it. For example, we can add extra styles to <code>antd</code>&rsquo;s <code>Button</code> component like so:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Button</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;antd&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">styled</span> <span class="nx">from</span> <span class="s1">&#39;styled-components&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">PaddedButton</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">(</span><span class="nx">Button</span><span class="p">)</span><span class="sb">`
+</span><span class="sb">  padding: 10px;
+</span><span class="sb">`</span><span class="p">;</span>
+</code></pre></div><p>There is a short-hand for applying the styling on HTML elements where you can just use a <code>.</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">styled</span> <span class="nx">from</span> <span class="s1">&#39;styled-components&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">RedText</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">.</span><span class="nx">p</span><span class="sb">`
+</span><span class="sb">  color: red;
+</span><span class="sb">`</span><span class="p">;</span>
+</code></pre></div><p>I love <code>styled-components</code> because I can style the components in the way I need without ever leaving the component file. In my opinion, the close coupling of component&rsquo;s styles to their state management makes for a simpler development workflow.</p>
+<p><strong>Note:</strong> be sure to always define your styled components <em>outside</em> of the component that uses them, so that they aren&rsquo;t re-computed on every render.</p>
+<h1 id="react-router-domhttpsreactroutercom" class="relative group"><a href="https://reactrouter.com/"   target="_blank" rel="noreferrer noopener">react-router-dom</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#react-router-domhttpsreactroutercom" aria-label="Anchor">#</a></span></h1>
+<p>This is simply the easiest and best routing package out there. It gives you a set of navigational components that you can use to declare different routes in your application like the main page, a <code>/login</code> page, a <code>/profile</code> page, etc. You declare your different routes with <code>Route</code> components, and then designate which component they should render:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Route</span><span class="p">,</span> <span class="nx">Switch</span><span class="p">,</span> <span class="nx">Router</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">LoginPage</span> <span class="nx">from</span> <span class="s1">&#39;./LoginPage&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">Router</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">Switch</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/login&#34;</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">LoginPage</span><span class="p">}</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">Switch</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">Router</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>I&rsquo;ve also written <a href="https://dylanpowers.me/post/protected-routes-in-react/"   target="_blank" rel="noreferrer noopener">separate post</a>
+ on how to make protected routes using this package.</p>
+<h1 id="firebasehttpswwwnpmjscompackagefirebase" class="relative group"><a href="https://www.npmjs.com/package/firebase"   target="_blank" rel="noreferrer noopener">firebase</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#firebasehttpswwwnpmjscompackagefirebase" aria-label="Anchor">#</a></span></h1>
+<p>Firebase is more just than a package - it provides tools for everything that basic applications need like authentication, storage, and much more. It provides a declarative and simple API that makes app development incredibly simple.</p>
+<p>To use this package, you&rsquo;ll need to create a firebase account and project. After that, you can set up authentication as well as a real-time datastore or a collection-like datastore similar to <a href="https://www.mongodb.com/"   target="_blank" rel="noreferrer noopener">MongoDB</a>
+.</p>
+<h1 id="axioshttpswwwnpmjscompackageaxios" class="relative group"><a href="https://www.npmjs.com/package/axios"   target="_blank" rel="noreferrer noopener">axios</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#axioshttpswwwnpmjscompackageaxios" aria-label="Anchor">#</a></span></h1>
+<p>Axios is a simple HTTP client for making API requests from the browser. It&rsquo;s also promise-based which means you can add success callbacks with ease.</p>
+<h1 id="classnameshttpswwwnpmjscompackageclassnames" class="relative group"><a href="https://www.npmjs.com/package/classnames"   target="_blank" rel="noreferrer noopener">classnames</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#classnameshttpswwwnpmjscompackageclassnames" aria-label="Anchor">#</a></span></h1>
+<p>Classnames is an incredible simple yet extremely powerful library. It does one thing and it does it well - conditionally combining CSS class names based on a set of criteria. It exports a function which takes a single object argument where the keys are the class names and the values are booleans representing whether or not to apply the class name. Here&rsquo;s a simple example where something should have the <code>highlighted</code> class if a piece of state is <code>true</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">classNames</span> <span class="nx">from</span> <span class="s1">&#39;classnames&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">List</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">[</span><span class="nx">isHighlighted</span><span class="p">,</span> <span class="nx">setIsHighlighted</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+  <span class="kr">const</span> <span class="nx">listItemClassName</span> <span class="o">=</span> <span class="nx">classNames</span><span class="p">({</span>
+    <span class="s1">&#39;list-item&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;highlighted&#39;</span><span class="o">:</span> <span class="nx">isHighlighted</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div><hr>
+<p>With these packages, you can supercharge your React development. Go out and develop!</p>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+          width="96"
+          height="96"
+          alt="Dylan Powers"
+          src="/img/avatar_hu42b8eb9db929b08b309bfc601d27a140_1054508_192x192_fill_box_smart1_3.png"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Dylan Powers
+        </div>
+      
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="mailto:dylandpowers@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/dylandpowers"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://linkedin.com/in/dylandpowers25"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/blog/using-context-to-prevent-unnecessary-re-renders/">
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Using Context to Prevent Unnecessary Re Renders</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-05-09 22:49:47 -0400 EDT">9 May 2021</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/blog/when-to-use-usecallback/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >When to Use useCallback</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-08-15 21:10:54 -0400 EDT">15 August 2021</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0"
+          >
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2023
+            Dylan Powers
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

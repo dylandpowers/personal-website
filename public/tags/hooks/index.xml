@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hooks on Dylan Powers</title>
+    <link>https://dylanpowers.me/tags/hooks/</link>
+    <description>Recent content in Hooks on Dylan Powers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Aug 2021 21:10:54 -0400</lastBuildDate><atom:link href="https://dylanpowers.me/tags/hooks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When to Use useCallback</title>
+      <link>https://dylanpowers.me/blog/when-to-use-usecallback/</link>
+      <pubDate>Sun, 15 Aug 2021 21:10:54 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/when-to-use-usecallback/</guid>
+      <description>When to actually use the useCallback function in React</description>
+    </item>
+    
+    <item>
+      <title>Using Context to Prevent Unnecessary Re Renders</title>
+      <link>https://dylanpowers.me/blog/using-context-to-prevent-unnecessary-re-renders/</link>
+      <pubDate>Sun, 09 May 2021 22:49:47 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/using-context-to-prevent-unnecessary-re-renders/</guid>
+      <description>Using React&amp;rsquo;s Context API to prevent unnecessary re-renders in React applications.</description>
+    </item>
+    
+    <item>
+      <title>Redux Without Redux: How to Create Redux-like Functionality Using React</title>
+      <link>https://dylanpowers.me/blog/redux-without-redux-how-to-create-redux-like-functionality-using-react/</link>
+      <pubDate>Tue, 02 Feb 2021 21:03:31 -0500</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/redux-without-redux-how-to-create-redux-like-functionality-using-react/</guid>
+      <description>Create a simple Redux-like module using pure React</description>
+    </item>
+    
+  </channel>
+</rss>

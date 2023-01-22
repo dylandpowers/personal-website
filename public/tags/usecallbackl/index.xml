@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>useCallbackl on Dylan Powers</title>
+    <link>https://dylanpowers.me/tags/usecallbackl/</link>
+    <description>Recent content in useCallbackl on Dylan Powers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Aug 2021 21:10:54 -0400</lastBuildDate><atom:link href="https://dylanpowers.me/tags/usecallbackl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When to Use useCallback</title>
+      <link>https://dylanpowers.me/blog/when-to-use-usecallback/</link>
+      <pubDate>Sun, 15 Aug 2021 21:10:54 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/when-to-use-usecallback/</guid>
+      <description>When to actually use the useCallback function in React</description>
+    </item>
+    
+  </channel>
+</rss>

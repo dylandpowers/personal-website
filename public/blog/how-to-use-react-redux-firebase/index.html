@@ -1,0 +1,727 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="rgb(255,255,255)" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>How to Use React-Redux-Firebase &middot; Dylan Powers</title>
+    <meta name="title" content="How to Use React-Redux-Firebase &middot; Dylan Powers" />
+  
+  <meta name="description" content="A short tutorial on how to use this really cool package bringing together the best of React, Redux, and Firebase." />
+  
+  
+  
+  <link rel="canonical" href="https://dylanpowers.me/blog/how-to-use-react-redux-firebase/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.001c0d1efdb688490593281d28088c05f329dba8795ad1d0908855388581c32d591279cc3cef35e1fa6a2d34617ac0acd30cae7cefc0823bc53648d159eb782f.css"
+    integrity="sha512-ABwNHv22iEkFkygdKAiMBfMp26h5WtHQkIhVOIWBwy1ZEnnMPO814fpqLTRhesCs0wyufO/AgjvFNkjRWet4Lw=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.097ba0f9f952c4338661edbcd7abcb3fd57baa33459cf472a192ad7ef214f4cef34ac5c3a4efb0be066b70144cfdf16b1abef0ccb8f07b14a7bcf2a1c394e7bd.js" integrity="sha512-CXug&#43;flSxDOGYe2816vLP9V7qjNFnPRyoZKtfvIU9M7zSsXDpO&#43;wvgZrcBRM/fFrGr7wzLjwexSnvPKhw5TnvQ=="></script>
+  
+  
+  
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="How to Use React-Redux-Firebase" />
+<meta property="og:description" content="A short tutorial on how to use this really cool package bringing together the best of React, Redux, and Firebase." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dylanpowers.me/blog/how-to-use-react-redux-firebase/" /><meta property="og:image" content="https://dylanpowers.me/blog/how-to-use-react-redux-firebase/featured.jpg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-06-24T10:25:29-04:00" />
+<meta property="article:modified_time" content="2020-06-24T10:25:29-04:00" /><meta property="og:site_name" content="Dylan Powers" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dylanpowers.me/blog/how-to-use-react-redux-firebase/featured.jpg"/>
+<meta name="twitter:title" content="How to Use React-Redux-Firebase"/>
+<meta name="twitter:description" content="A short tutorial on how to use this really cool package bringing together the best of React, Redux, and Firebase."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "How to Use React-Redux-Firebase",
+    "headline": "How to Use React-Redux-Firebase",
+    
+    "abstract": "A short tutorial on how to use this really cool package bringing together the best of React, Redux, and Firebase.",
+    "inLanguage": "en",
+    "url" : "https:\/\/dylanpowers.me\/blog\/how-to-use-react-redux-firebase\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Dylan Powers"
+    },
+    "copyrightYear": "2020",
+    "dateCreated": "2020-06-24T10:25:29-04:00",
+    "datePublished": "2020-06-24T10:25:29-04:00",
+    
+    "dateModified": "2020-06-24T10:25:29-04:00",
+    
+    "keywords": ["React","Redux","Firebase","JavaScript","React-Redux","React-Redux-Firebase","useFirestoreConnect","useFirebaseConnect","Auth","Authentication","User"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1153"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="Dylan Powers" />
+  
+    
+      <link href="mailto:dylandpowers@gmail.com" rel="me" />
+    
+      <link href="https://github.com/dylandpowers" rel="me" />
+    
+      <link href="https://linkedin.com/in/dylandpowers25" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400"
+          >&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Dylan Powers</a
+  >
+
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/blog/"
+                  title=""
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Blog</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/tags/"
+                  title="Tags"
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Tags</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                
+                
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        How to Use React-Redux-Firebase
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2020-06-24 10:25:29 -0400 EDT">24 June 2020</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+      
+        <div class="prose">
+          <img
+            class="mb-6 -mt-4 rounded-md"
+            
+              
+                srcset=" /blog/how-to-use-react-redux-firebase/featured_hud36111b5a5f8a30b28822ed5c28b4e5a_27589_330x0_resize_q75_box.jpg 330w,
+                /blog/how-to-use-react-redux-firebase/featured_hud36111b5a5f8a30b28822ed5c28b4e5a_27589_660x0_resize_q75_box.jpg 660w, /blog/how-to-use-react-redux-firebase/featured_hud36111b5a5f8a30b28822ed5c28b4e5a_27589_1024x0_resize_q75_box.jpg
+                1024w, /blog/how-to-use-react-redux-firebase/featured_hud36111b5a5f8a30b28822ed5c28b4e5a_27589_1320x0_resize_q75_box.jpg 2x"
+                src="/blog/how-to-use-react-redux-firebase/featured_hud36111b5a5f8a30b28822ed5c28b4e5a_27589_660x0_resize_q75_box.jpg"
+              
+            
+            alt=""
+          />
+          
+        </div>
+      
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      <div class="min-w-0 min-h-0 max-w-prose grow">
+        <p>In this post, I will show you how to use the <a href="https://www.npmjs.com/package/react-redux-firebase"   target="_blank" rel="noreferrer noopener">react-redux-firebase</a>
+ package to incorporate Redux bindings for Firebase into your React project. This allows you to incorporate Firebase and Firestore data  into global state without any extra work, as well as handle auth in a super simple way. If you are unfamiliar with <a href="https://reactjs.org/"   target="_blank" rel="noreferrer noopener">React</a>
+, <a href="https://redux.js.org"   target="_blank" rel="noreferrer noopener">Redux</a>
+, or <a href="https://firebase.google.com/"   target="_blank" rel="noreferrer noopener">Firebase</a>
+, please spend some time familiarizing yourself with those before jumping in.</p>
+<p>This is <strong>not</strong> a beginning-to-end tutorial; rather, I will show you how the <code>react-redux-firebase</code> (RRF) package to make your app flow much simpler. For setup instructions, check out <a href="https://www.npmjs.com/package/react-redux-firebase"   target="_blank" rel="noreferrer noopener">the documentation</a>
+.</p>
+<h1 id="auth" class="relative group">Auth <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#auth" aria-label="Anchor">#</a></span></h1>
+<h3 id="sign-in" class="relative group">Sign In <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#sign-in" aria-label="Anchor">#</a></span></h3>
+<p>First, I will show you how this package makes auth in your application so much simpler. Without RRF, you would have to perform the sign in flow and then <code>dispatch</code> an action to the store with the user information; then, any time you needed that, you would have to use a <code>useSelector</code> hook to get that sign in information. It might look something like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">firebase</span> <span class="nx">from</span> <span class="s1">&#39;firebase&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useDispatch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Component</span><span class="p">()</span> <span class="p">{</span>
+	
+  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useDispatch</span><span class="p">();</span>
+	
+  <span class="kd">function</span> <span class="nx">signIn</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">firebase</span><span class="p">.</span><span class="nx">auth</span><span class="p">().</span><span class="nx">signInWithEmailAndPassword</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">userCredential</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;AUTH&#39;</span><span class="p">,</span>
+        <span class="nx">user</span><span class="o">:</span> <span class="nx">userCredential</span>
+      <span class="p">})).</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">signOut</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">firebase</span><span class="p">.</span><span class="nx">auth</span><span class="p">().</span><span class="nx">signOut</span><span class="p">()</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;AUTH&#39;</span><span class="p">,</span>
+        <span class="nx">user</span><span class="o">:</span> <span class="kc">undefined</span>
+      <span class="p">})).</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>Then when you want to query for the currently signed-in user in another component, you would do something like</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">auth</span><span class="p">);</span>
+</code></pre></div><p>However, when you use the <code>useFirebase</code> hook provided by <code>react-redux-firebase</code>, you don&rsquo;t have to dispatch any actions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useFirebase</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux-firebase&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Component</span><span class="p">()</span> <span class="p">{</span>
+	
+  <span class="kr">const</span> <span class="nx">firebase</span> <span class="o">=</span> <span class="nx">useFirebase</span><span class="p">();</span>
+
+  <span class="kd">function</span> <span class="nx">signIn</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">firebase</span><span class="p">.</span><span class="nx">signIn</span><span class="p">({</span>
+      <span class="nx">email</span><span class="p">,</span>
+      <span class="nx">password</span>
+    <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">signOut</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">firebase</span><span class="p">.</span><span class="nx">signOut</span><span class="p">()</span>
+      <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>That&rsquo;s it! No extra state for you to handle, RRF does it all internally. Then, simply query for the currently signed-in user as such:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firebase</span><span class="p">.</span><span class="nx">auth</span><span class="p">);</span>
+</code></pre></div><h3 id="registration" class="relative group">Registration <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#registration" aria-label="Anchor">#</a></span></h3>
+<p>If you also want to store some extra data on the side, such as user <code>firstName</code> and <code>lastName</code>, you specify that when you sign up a user, as the second argument to the <code>createUser()</code> call. <strong>This makes that information readily available in the store as part of the</strong> <code>profile</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useFirebase</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux-firebase&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Component</span><span class="p">()</span> <span class="p">{</span>
+	
+  <span class="kr">const</span> <span class="nx">firebase</span> <span class="o">=</span> <span class="nx">useFirebase</span><span class="p">();</span>
+
+  <span class="kd">function</span> <span class="nx">register</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">firebase</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span>
+      <span class="nx">email</span><span class="p">,</span>
+      <span class="nx">password</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">email</span><span class="p">,</span>
+      <span class="nx">firstName</span><span class="p">,</span>
+      <span class="nx">lastName</span>
+    <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>In this example, <code>email</code>, <code>firstName</code>, and <code>lastName</code> are all stored as part of the user&rsquo;s <code>profile</code>. You can access this information anywhere using the <code>profile</code> part of the store:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="p">{</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firebase</span><span class="p">.</span><span class="nx">profile</span><span class="p">);</span>
+</code></pre></div><p>Isn&rsquo;t that awesome?</p>
+<h1 id="data-storage" class="relative group">Data Storage <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#data-storage" aria-label="Anchor">#</a></span></h1>
+<h3 id="cloud-firestore" class="relative group">Cloud Firestore <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#cloud-firestore" aria-label="Anchor">#</a></span></h3>
+<p>Firestore, being a document-oriented database, is my preference when developing an app on top of Firebase. The Firestore JavaScript SDK provides listeners that automatically listen for changes in Firestore documents. However, if you want to listen for changes to an entire collection and update state accordingly, the code becomes quite clunky:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useDispatch</span><span class="p">,</span> <span class="nx">useSelector</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">firebase</span> <span class="nx">from</span> <span class="s1">&#39;firebase&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Component</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useDispatch</span><span class="p">();</span>
+
+  <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">todos</span><span class="p">);</span>
+
+  <span class="nx">firebase</span><span class="p">.</span><span class="nx">firestore</span><span class="p">().</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">onSnapshot</span><span class="p">((</span><span class="nx">querySnapshot</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">updatedTodos</span> <span class="o">=</span> <span class="p">{};</span>
+      <span class="nx">querySnapshot</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">doc</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">updatedTodos</span><span class="p">[</span><span class="nx">doc</span><span class="p">.</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">data</span><span class="p">();</span>
+      <span class="p">});</span>
+      <span class="nx">dispatch</span><span class="p">({</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;TODOS_UPDATED&#39;</span><span class="p">,</span>
+        <span class="nx">todos</span><span class="o">:</span> <span class="nx">updatedTodos</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>However, with RRF&rsquo;s <code>useFirestoreConnect</code> hook, you can attach a listener that will automatically listen and unlisten as needed, <em>and</em> you can make the data a part of Redux state.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useFirestoreConnect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux-firebase&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Component</span><span class="p">()</span> <span class="p">{</span>
+	
+  <span class="nx">useFirestoreConnect</span><span class="p">({</span>
+    <span class="nx">collection</span><span class="o">:</span> <span class="s1">&#39;todos&#39;</span>
+  <span class="p">});</span>
+
+  <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firestore</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">todos</span><span class="p">);</span>
+
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>In the two above examples, both <code>todos</code> variables with evaluate to the same thing; there are two obvious differences:</p>
+<ol>
+<li>The first example involves much more code, and is much harder to read.</li>
+<li>The second example requires no manual global state management, as that is managed by the hook.</li>
+</ol>
+<p>This extremely useful hook also offers three other really cool features:</p>
+<ol>
+<li>
+<p>If you have a nested collection, you can choose how the listener stores the collection as part of global state. For example, if you have a nested collection <code>baz</code> which is located at <code>foo/bar/baz</code>, then without this feature you would have to select the collection as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firestore</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">baz</span><span class="p">);</span>
+</code></pre></div><p>However, using the <code>storeAs</code> argument, you can easily change it to anything you like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">useFirestoreConnect</span><span class="p">({</span>
+  <span class="nx">collection</span><span class="o">:</span> <span class="s1">&#39;foo/bar/baz&#39;</span><span class="p">,</span>
+  <span class="nx">storeAs</span><span class="o">:</span> <span class="s1">&#39;baz&#39;</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firestore</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">baz</span><span class="p">);</span>
+</code></pre></div></li>
+<li>
+<p>If you use the <code>ordered</code> property of <code>firestore</code> instead of <code>data</code>, the data will become sorted. To change how the data is sorted, pass an <code>orderBy</code> argument to the hook:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">useFirestoreConnect</span><span class="p">({</span>
+  <span class="nx">collection</span><span class="o">:</span> <span class="s1">&#39;foo/bar/baz&#39;</span><span class="p">,</span>
+  <span class="nx">orderBy</span><span class="o">:</span> <span class="s1">&#39;createdAt&#39;</span><span class="p">,</span>
+  <span class="nx">storeAs</span><span class="o">:</span> <span class="s1">&#39;baz&#39;</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firestore</span><span class="p">.</span><span class="nx">ordered</span><span class="p">.</span><span class="nx">baz</span><span class="p">);</span>
+</code></pre></div></li>
+<li>
+<p>If you just want to listen to a specific document (rather than an entire collection), that&rsquo;s entirely possible too. You will still have to select the individual document, but the listener will only listen to the single document, not the entire collection:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">useFirestoreConnect</span><span class="p">({</span>
+  <span class="nx">collection</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span>
+  <span class="nx">doc</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firestore</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">foo</span><span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]);</span>
+</code></pre></div></li>
+</ol>
+<p>Absolutely amazing.</p>
+<h3 id="real-time-database" class="relative group">Real-time Database <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#real-time-database" aria-label="Anchor">#</a></span></h3>
+<p>The custom hook <code>useFirebaseConnect</code> for listening to the real-time database is very similar to the above example, with a few differences based on the general difference between the two query languages. Before RRF, you would have to fetch data from a path like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useDispatch</span><span class="p">,</span> <span class="nx">useSelector</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">firebase</span> <span class="nx">from</span> <span class="s1">&#39;firebase&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Component</span><span class="p">()</span> <span class="p">{</span>
+	
+  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">useDispatch</span><span class="p">();</span>
+
+  <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">todos</span><span class="p">);</span>
+
+  <span class="nx">firebase</span><span class="p">.</span><span class="nx">database</span><span class="p">().</span><span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">snapshot</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">dispatch</span><span class="p">({</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;TODOS_UPDATED&#39;</span><span class="p">,</span>
+        <span class="nx">todos</span><span class="o">:</span> <span class="nx">snapshot</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>However, by using the <code>useFirebaseConnect</code> hook, we no longer have to manually manage global state. Instead, the hook manages listening and unlistening as well as updating our global state:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useSelector</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">useFirebaseConnect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux-firebase&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Component</span><span class="p">()</span> <span class="p">{</span>
+	
+  <span class="nx">useFirebaseConnect</span><span class="p">({</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;todos&#39;</span>
+  <span class="p">});</span>
+
+  <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firebase</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">todos</span><span class="p">);</span>
+
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>Isn&rsquo;t that much cleaner? You can also use special <a href="https://firebase.google.com/docs/reference/js/firebase.database.Query"   target="_blank" rel="noreferrer noopener">query parameters</a>
+ to change how the data is sorted, among other things:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">useFirebaseConnect</span><span class="p">({</span>
+  <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;todos&#39;</span><span class="p">,</span>
+  <span class="nx">queryParams</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;orderByKey&#34;</span><span class="p">]</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">useSelector</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">firebase</span><span class="p">.</span><span class="nx">ordered</span><span class="p">.</span><span class="nx">todos</span><span class="p">);</span>
+</code></pre></div><p>Basically, anything that you could do with the standard SDK, the hook exposes to you as well.</p>
+<h1 id="conclusion" class="relative group">Conclusion <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#conclusion" aria-label="Anchor">#</a></span></h1>
+<p>If you&rsquo;re developing an app with React, Redux, and Firebase, then you should be using this library to make your code much cleaner. Auth has never been simpler. Plus, the custom Firebase and Firestore hooks do so much extra leg work for you, so you can focus on writing application code.</p>
+<p><em>Note: header image taken from <a href="https://www.youtube.com/watch?v=TlpX0aMYmrk"   target="_blank" rel="noreferrer noopener">this tutorial</a>
+ from <a href="https://www.youtube.com/channel/UCIWTUpwIzh_P73LlbX20VQA"   target="_blank" rel="noreferrer noopener">Aberraouf Zine</a>
+.</em></p>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+          width="96"
+          height="96"
+          alt="Dylan Powers"
+          src="/img/avatar_hu42b8eb9db929b08b309bfc601d27a140_1054508_192x192_fill_box_smart1_3.png"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Dylan Powers
+        </div>
+      
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="mailto:dylandpowers@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/dylandpowers"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://linkedin.com/in/dylandpowers25"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/blog/striking-the-balance-development-in-a-fast-moving-startup/">
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Striking the Balance: Development in a Fast-Moving Startup</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2020-02-09 18:55:28 -0500 EST">9 February 2020</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/blog/protected-routes-in-react/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Protected Routes in React using React-Router-Dom</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2020-09-08 10:49:45 -0400 EDT">8 September 2020</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0"
+          >
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2023
+            Dylan Powers
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

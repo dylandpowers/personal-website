@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Context on Dylan Powers</title>
+    <link>https://dylanpowers.me/tags/context/</link>
+    <description>Recent content in Context on Dylan Powers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 09 May 2021 22:49:47 -0400</lastBuildDate><atom:link href="https://dylanpowers.me/tags/context/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Context to Prevent Unnecessary Re Renders</title>
+      <link>https://dylanpowers.me/blog/using-context-to-prevent-unnecessary-re-renders/</link>
+      <pubDate>Sun, 09 May 2021 22:49:47 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/using-context-to-prevent-unnecessary-re-renders/</guid>
+      <description>Using React&amp;rsquo;s Context API to prevent unnecessary re-renders in React applications.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Dylan Powers</title>
+    <link>https://dylanpowers.me/categories/</link>
+    <description>Recent content in Categories on Dylan Powers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 May 2022 19:42:35 -0400</lastBuildDate><atom:link href="https://dylanpowers.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interviewing</title>
+      <link>https://dylanpowers.me/categories/interviewing/</link>
+      <pubDate>Mon, 16 May 2022 19:42:35 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/categories/interviewing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://dylanpowers.me/categories/react/</link>
+      <pubDate>Mon, 21 Feb 2022 18:48:03 -0500</pubDate>
+      
+      <guid>https://dylanpowers.me/categories/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Other</title>
+      <link>https://dylanpowers.me/categories/other/</link>
+      <pubDate>Sun, 22 Aug 2021 21:18:51 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/categories/other/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>https://dylanpowers.me/categories/tutorials/</link>
+      <pubDate>Tue, 08 Sep 2020 10:49:45 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

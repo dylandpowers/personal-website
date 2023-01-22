@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microphone on Dylan Powers</title>
+    <link>https://dylanpowers.me/tags/microphone/</link>
+    <description>Recent content in Microphone on Dylan Powers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Aug 2021 21:18:51 -0400</lastBuildDate><atom:link href="https://dylanpowers.me/tags/microphone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My 2021 Work From Home Setup</title>
+      <link>https://dylanpowers.me/blog/my-2021-work-from-home-setup/</link>
+      <pubDate>Sun, 22 Aug 2021 21:18:51 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/my-2021-work-from-home-setup/</guid>
+      <description>An overview of my current desk setup</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,567 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="rgb(255,255,255)" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>When to Use useCallback &middot; Dylan Powers</title>
+    <meta name="title" content="When to Use useCallback &middot; Dylan Powers" />
+  
+  <meta name="description" content="When to actually use the useCallback function in React" />
+  
+  
+  
+  <link rel="canonical" href="https://dylanpowers.me/blog/when-to-use-usecallback/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.001c0d1efdb688490593281d28088c05f329dba8795ad1d0908855388581c32d591279cc3cef35e1fa6a2d34617ac0acd30cae7cefc0823bc53648d159eb782f.css"
+    integrity="sha512-ABwNHv22iEkFkygdKAiMBfMp26h5WtHQkIhVOIWBwy1ZEnnMPO814fpqLTRhesCs0wyufO/AgjvFNkjRWet4Lw=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.097ba0f9f952c4338661edbcd7abcb3fd57baa33459cf472a192ad7ef214f4cef34ac5c3a4efb0be066b70144cfdf16b1abef0ccb8f07b14a7bcf2a1c394e7bd.js" integrity="sha512-CXug&#43;flSxDOGYe2816vLP9V7qjNFnPRyoZKtfvIU9M7zSsXDpO&#43;wvgZrcBRM/fFrGr7wzLjwexSnvPKhw5TnvQ=="></script>
+  
+  
+  
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="When to Use useCallback" />
+<meta property="og:description" content="When to actually use the useCallback function in React" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dylanpowers.me/blog/when-to-use-usecallback/" /><meta property="og:image" content="https://dylanpowers.me/blog/when-to-use-usecallback/featured.jpeg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-08-15T21:10:54-04:00" />
+<meta property="article:modified_time" content="2021-08-15T21:10:54-04:00" /><meta property="og:site_name" content="Dylan Powers" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dylanpowers.me/blog/when-to-use-usecallback/featured.jpeg"/>
+<meta name="twitter:title" content="When to Use useCallback"/>
+<meta name="twitter:description" content="When to actually use the useCallback function in React"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "When to Use useCallback",
+    "headline": "When to Use useCallback",
+    
+    "abstract": "When to actually use the useCallback function in React",
+    "inLanguage": "en",
+    "url" : "https:\/\/dylanpowers.me\/blog\/when-to-use-usecallback\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Dylan Powers"
+    },
+    "copyrightYear": "2021",
+    "dateCreated": "2021-08-15T21:10:54-04:00",
+    "datePublished": "2021-08-15T21:10:54-04:00",
+    
+    "dateModified": "2021-08-15T21:10:54-04:00",
+    
+    "keywords": ["React","Frontend","JavaScript","Hooks","useCallbackl"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "726"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="Dylan Powers" />
+  
+    
+      <link href="mailto:dylandpowers@gmail.com" rel="me" />
+    
+      <link href="https://github.com/dylandpowers" rel="me" />
+    
+      <link href="https://linkedin.com/in/dylandpowers25" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400"
+          >&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Dylan Powers</a
+  >
+
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/blog/"
+                  title=""
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Blog</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/tags/"
+                  title="Tags"
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Tags</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                
+                
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        When to Use useCallback
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2021-08-15 21:10:54 -0400 EDT">15 August 2021</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+      
+        <div class="prose">
+          <img
+            class="mb-6 -mt-4 rounded-md"
+            
+              
+                srcset=" /blog/when-to-use-usecallback/featured_huad60ddcf9c73a28bf0ac03ff47c884e0_136910_330x0_resize_q75_box.jpeg 330w,
+                /blog/when-to-use-usecallback/featured_huad60ddcf9c73a28bf0ac03ff47c884e0_136910_660x0_resize_q75_box.jpeg 660w, /blog/when-to-use-usecallback/featured_huad60ddcf9c73a28bf0ac03ff47c884e0_136910_1024x0_resize_q75_box.jpeg
+                1024w, /blog/when-to-use-usecallback/featured_huad60ddcf9c73a28bf0ac03ff47c884e0_136910_1320x0_resize_q75_box.jpeg 2x"
+                src="/blog/when-to-use-usecallback/featured_huad60ddcf9c73a28bf0ac03ff47c884e0_136910_660x0_resize_q75_box.jpeg"
+              
+            
+            alt=""
+          />
+          
+        </div>
+      
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      <div class="min-w-0 min-h-0 max-w-prose grow">
+        <p>I&rsquo;ve worked with React a lot over the past few years. The more I work with it, the more I notice common mistakes that can slow down rendering as they pile up. Granted, in small applications (like most side projects), usually the rendering slowness will go unnoticed due to the size of the application. However, for larger applications, thinking about rendering speed becomes important.</p>
+<p>One issue I see often is wrapping all function declarations in a component inside of a <a href="https://reactjs.org/docs/hooks-reference.html#usecallback"   target="_blank" rel="noreferrer noopener">useCallback</a>
+ hook. As per the React docs:</p>
+<blockquote>
+<p><code>useCallback</code> will return a memoized version of the callback that only changes if one of the dependencies has changed.</p>
+</blockquote>
+<p>Essentially, without <code>useCallback</code>, the function will be recreated on every render. It&rsquo;s important to remember that in JavaScript, functions are first-class objects just like a normal <code>Object</code> is. This essentially just means that the function can be stored as a variable, passed as an argument to a function, and returned from a function.</p>
+<h1 id="without-usecallback" class="relative group">Without <code>useCallback</code> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#without-usecallback" aria-label="Anchor">#</a></span></h1>
+<p>Let&rsquo;s say we have a function <code>createUser</code> that is going to create a user by making an API call. The user details are stored in pieces of state within the component.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// SignupPage.jsx
+</span><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">email</span><span class="p">,</span> <span class="nx">setEmail</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="p">[</span><span class="nx">password</span><span class="p">,</span> <span class="nx">setPassword</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">createUser</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">UserAPI</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
+  <span class="nx">redirectToHome</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div><p>We will return some JSX that will render the <code>input</code> elements, so we don&rsquo;t need to rely on other components to render the input form. Whenever a piece of state changes, React will re-render the component. This will recreate (among other things) all functions not wrapped in a <code>useCallback</code>.</p>
+<p>This means that the <code>createUser</code> function above is created once for each render. This can become a larger performance hit in larger applications, but I&rsquo;ll show in the next section why it isn&rsquo;t the end of the world for this case.</p>
+<h1 id="with-usecallback" class="relative group">With <code>useCallback</code> <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#with-usecallback" aria-label="Anchor">#</a></span></h1>
+<p>Alternatively, we can wrap the function in a <code>useCallback</code> hook provided by the React library. This means that the function will not be re-evaluated unless something in the dependency array changes. Assuming that <code>UserAPI</code> and the <code>redirectToHome</code> function are both created outside of the component, we just need to declare <code>email</code> and <code>password</code> as dependencies.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// SignupPage.jsx
+</span><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">email</span><span class="p">,</span> <span class="nx">setEmail</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="p">[</span><span class="nx">password</span><span class="p">,</span> <span class="nx">setPassword</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">createUser</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">UserAPI</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
+  <span class="nx">redirectToHome</span><span class="p">();</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">]);</span>
+</code></pre></div><p>This means that, unless the <code>email</code> or <code>password</code> state changes, we will not recreate the <code>createUser</code> function. For example, if we had some <code>showInfoModal</code> state that would show some information about signing up, we could change that state without recreating the <code>createUser</code> function.</p>
+<p>This seems like an improvement, right? Consider the fact that the above code is actually identical to the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// SignupPage.jsx
+</span><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">email</span><span class="p">,</span> <span class="nx">setEmail</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="p">[</span><span class="nx">password</span><span class="p">,</span> <span class="nx">setPassword</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">nonMemoizedCreateUser</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">UserAPI</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
+  <span class="nx">redirectToHome</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">createUser</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(</span><span class="nx">nonMemoizedCreateUser</span><span class="p">,</span> <span class="p">[</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">]);</span>
+</code></pre></div><p>So, the original function is actually still created, and we are doing even more work than before! In this instance, it seems quite wasteful. However, there are situations where <code>useCallback</code> is worth the extra cost.</p>
+<h1 id="use-it-with-memoized-components" class="relative group">Use it With Memoized Components <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#use-it-with-memoized-components" aria-label="Anchor">#</a></span></h1>
+<p>The best use case for <code>useCallback</code> is when creating memoized components; that is, components wrapped in an extra <code>React.memo()</code> function. This means that the component will not re-render unless the props <em>actually</em> change (or, of course,
+component-held state changes).</p>
+<p>Consider a situation where we have a separate <code>Button</code> component which will call the passed-in function when clicked. This component has a single prop representing the <code>createUser</code> function.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">memo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">Button</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">createUser</span><span class="p">}&gt;</span><span class="nx">Create</span> <span class="nx">User</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">memo</span><span class="p">(</span><span class="nx">Button</span><span class="p">);</span>
+</code></pre></div><p>This means that the <code>Button</code> component will not re-render unless the props change (React by default defines a &ldquo;change&rdquo; by shallowly comparing the current props to the previous props). If in the <code>SignupPage</code> component we do not wrap the function in a <code>useCallback</code>, then the reference will change every time, causing the <code>Button</code> component to re-render every time that the <code>SignupPage</code> component re-renders. However, if we wrap the prop in a <code>useCallback</code>, then we have much more fine-grained control over when the <code>Button</code> component re-renders.</p>
+<hr>
+<p>When making decisions on whether or not to use <code>useCallback</code>, there are always several factors at play. However, when relying on memoized components, wrapping function props in <code>useCallback</code>s is always a safe bet.</p>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+          width="96"
+          height="96"
+          alt="Dylan Powers"
+          src="/img/avatar_hu42b8eb9db929b08b309bfc601d27a140_1054508_192x192_fill_box_smart1_3.png"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Dylan Powers
+        </div>
+      
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="mailto:dylandpowers@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/dylandpowers"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://linkedin.com/in/dylandpowers25"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/blog/essential-npm-packages-for-react-beginners/">
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Essential NPM Packages for React Beginners</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-08-08 16:20:12 -0400 EDT">8 August 2021</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/blog/my-2021-work-from-home-setup/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >My 2021 Work From Home Setup</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-08-22 21:18:51 -0400 EDT">22 August 2021</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0"
+          >
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2023
+            Dylan Powers
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,558 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="rgb(255,255,255)" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Creating Robust Popovers in React using Material UI &middot; Dylan Powers</title>
+    <meta name="title" content="Creating Robust Popovers in React using Material UI &middot; Dylan Powers" />
+  
+  <meta name="description" content="A tutorial on creating robust popovers using Material UI." />
+  
+  
+  
+  <link rel="canonical" href="https://dylanpowers.me/blog/creating-robust-popovers-in-react/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.001c0d1efdb688490593281d28088c05f329dba8795ad1d0908855388581c32d591279cc3cef35e1fa6a2d34617ac0acd30cae7cefc0823bc53648d159eb782f.css"
+    integrity="sha512-ABwNHv22iEkFkygdKAiMBfMp26h5WtHQkIhVOIWBwy1ZEnnMPO814fpqLTRhesCs0wyufO/AgjvFNkjRWet4Lw=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.097ba0f9f952c4338661edbcd7abcb3fd57baa33459cf472a192ad7ef214f4cef34ac5c3a4efb0be066b70144cfdf16b1abef0ccb8f07b14a7bcf2a1c394e7bd.js" integrity="sha512-CXug&#43;flSxDOGYe2816vLP9V7qjNFnPRyoZKtfvIU9M7zSsXDpO&#43;wvgZrcBRM/fFrGr7wzLjwexSnvPKhw5TnvQ=="></script>
+  
+  
+  
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Creating Robust Popovers in React using Material UI" />
+<meta property="og:description" content="A tutorial on creating robust popovers using Material UI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dylanpowers.me/blog/creating-robust-popovers-in-react/" /><meta property="og:image" content="https://dylanpowers.me/blog/creating-robust-popovers-in-react/featured.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-02-21T18:48:03-05:00" />
+<meta property="article:modified_time" content="2022-02-21T18:48:03-05:00" /><meta property="og:site_name" content="Dylan Powers" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dylanpowers.me/blog/creating-robust-popovers-in-react/featured.png"/>
+<meta name="twitter:title" content="Creating Robust Popovers in React using Material UI"/>
+<meta name="twitter:description" content="A tutorial on creating robust popovers using Material UI."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "Creating Robust Popovers in React using Material UI",
+    "headline": "Creating Robust Popovers in React using Material UI",
+    
+    "abstract": "A tutorial on creating robust popovers using Material UI.",
+    "inLanguage": "en",
+    "url" : "https:\/\/dylanpowers.me\/blog\/creating-robust-popovers-in-react\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Dylan Powers"
+    },
+    "copyrightYear": "2022",
+    "dateCreated": "2022-02-21T18:48:03-05:00",
+    "datePublished": "2022-02-21T18:48:03-05:00",
+    
+    "dateModified": "2022-02-21T18:48:03-05:00",
+    
+    "keywords": ["React","Frontend","Typescript","TSX","Material","MUI"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "734"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="Dylan Powers" />
+  
+    
+      <link href="mailto:dylandpowers@gmail.com" rel="me" />
+    
+      <link href="https://github.com/dylandpowers" rel="me" />
+    
+      <link href="https://linkedin.com/in/dylandpowers25" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400"
+          >&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Dylan Powers</a
+  >
+
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/blog/"
+                  title=""
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Blog</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                <a
+                  href="/tags/"
+                  title="Tags"
+                  
+                  >
+                    <span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Tags</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li
+              class="mb-1 group sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+            >
+              
+                
+                
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Creating Robust Popovers in React using Material UI
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2022-02-21 18:48:03 -0500 EST">21 February 2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+      
+        <div class="prose">
+          <img
+            class="mb-6 -mt-4 rounded-md"
+            
+              
+                src="/blog/creating-robust-popovers-in-react/featured.png"
+              
+            
+            alt=""
+          />
+          
+        </div>
+      
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      <div class="min-w-0 min-h-0 max-w-prose grow">
+        <p>Popovers are a crucial part of any modern web application. Simply put, a popover is a small modal that pops over the screen when the user hovers or clicks somewhere. Usually this comes in the form of a menu, but it could also be a drawer popping out from the left or right side of the screen.</p>
+<p>When creating a web application, developers usually reach for a component library like <a href="https://mui.com/"   target="_blank" rel="noreferrer noopener">Material UI</a>
+ or <a href="https://ant.design/docs/react/introduce"   target="_blank" rel="noreferrer noopener">Antd</a>
+. Recently when playing around with Material (hereafter referred to as MUI), I reached for the <a href="https://mui.com/components/popover/"   target="_blank" rel="noreferrer noopener">Popover</a>
+ component. Here, I’ll discuss the implementation details of this component as to uncover one crucial limitation that necessitated my own custom implementation.</p>
+<h1 id="mui-popover-implementation" class="relative group">MUI Popover Implementation <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#mui-popover-implementation" aria-label="Anchor">#</a></span></h1>
+<p>The way the MUI popover component works is by first receiving an anchor element as a prop. The anchor element is usually whatever <code>div</code> the click or hover event is coming from; MUI uses this to determine where to place the popover. However, the popover itself does not get attached anywhere in the hierarchy of the anchor element. Instead, it gets attached to a new <code>div</code> which is a sibling of the root element (usually where <code>ReactDOM.render</code> is first called).</p>
+<p>Let’s call this new <code>div</code> <code>root-sibling</code>. This new <code>div</code> will take up the entire width and height of the viewport. The reason for this is to register a custom click handler that will cause the popover to close whenever the user clicks anywhere on the screen outside of the popover. Without knowing specifics, I’m assuming this click handler is registered on mount.</p>
+<p>This behavior introduces a crucial limitation - out of the box, we cannot allow the screen to continue to process hover events when the popover is open. For example, say we have a menu which opens a different popover for each menu item on hover. If we use the MUI popover out of the box, then those other menu items will be masked by <code>root-sibling</code> whenever any popover is open, and nothing will happen when the user hovers those elements.</p>
+<p>Furthermore, setting <code>pointer-events: none</code> on <code>root-sibling</code> will not work, because this will cause the popover to just always stay open no matter where the user clicks (I believe the escape key would still work, though). So what are we to do if we want the hover behavior to be preserved?</p>
+<h1 id="custom-implementation" class="relative group">Custom Implementation <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#custom-implementation" aria-label="Anchor">#</a></span></h1>
+<p>In order to continue to process other hover events <em>and</em> close the popover whenever the user clicks outside of it, I used a combination of the <code>pointer-events: none</code> styling and a custom click handler.</p>
+<p>First, we should style the <code>Popover</code> MUI component with <code>pointer-events: none</code>. However, we need to take care to still process the click events inside of the popover, otherwise the user will not be able to interact with menu elements. So, on the highest-level <code>div</code> inside of the <code>Popover</code> component, make sure to style with <code>pointer-events: auto</code>.</p>
+<p>Next, we need to register a custom click handler which will cause the popover to be closed whenever the user clicks outside of it. We will register this on the highest-level <code>div</code> inside of the component. We will first need a ref for that <code>div</code>, so that we can check where the click is. Use React’s <a href="https://reactjs.org/docs/hooks-reference.html#useref"   target="_blank" rel="noreferrer noopener"><code>useRef</code></a>
+ hook to generate that ref, and then pass it to that <code>div</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// PopoverContent.tsx
+</span><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">PopoverContent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">&lt;</span><span class="nt">HTMLElement</span> <span class="err">|</span> <span class="na">null</span><span class="p">&gt;(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">ref</span><span class="p">}&gt;</span>
+      <span class="nx">Content</span> <span class="nx">goes</span> <span class="nx">here</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>Then, on mount, we will register the click handler. We can grab the bounding rectangle for the ref, and then use that to check where the click is. If the click is outside of that rectangle, then we should close the popover, most likely using some prop. We also need to make sure to remove the click handler on unmount. We can do all of this inside of a <a href="https://reactjs.org/docs/hooks-reference.html#useeffect"   target="_blank" rel="noreferrer noopener"><code>useEffect</code></a>
+ hook:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// PopoverContent.tsx
+</span><span class="c1"></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">handleClose</span> <span class="p">}</span><span class="o">:</span> <span class="p">{</span> <span class="nx">handleClose</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">void</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">props</span><span class="p">;</span>
+
+<span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">ref</span> <span class="o">||</span> <span class="o">!</span><span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">const</span> <span class="nx">rect</span><span class="o">:</span> <span class="nx">DOMRect</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+  <span class="kr">const</span> <span class="nx">eventListener</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">MouseEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span>
+      <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">&lt;</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">left</span> <span class="o">||</span>
+      <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">&gt;</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">right</span> <span class="o">||</span>
+      <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">&lt;</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">top</span> <span class="o">||</span>
+      <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">&gt;</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">bottom</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">handleClose</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="nx">eventListener</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="nx">eventListener</span><span class="p">);</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">ref</span><span class="p">,</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">]);</span>
+</code></pre></div><p>And there we have it! Now we will be able to successfully process hover events while preserving the desired click behavior.</p>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+          width="96"
+          height="96"
+          alt="Dylan Powers"
+          src="/img/avatar_hu42b8eb9db929b08b309bfc601d27a140_1054508_192x192_fill_box_smart1_3.png"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Dylan Powers
+        </div>
+      
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="mailto:dylandpowers@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/dylandpowers"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://linkedin.com/in/dylandpowers25"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/blog/my-2021-work-from-home-setup/">
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >My 2021 Work From Home Setup</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-08-22 21:18:51 -0400 EDT">22 August 2021</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/blog/what-coding-interviews-should-be/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >What Coding Interviews Should Be</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-05-16 19:42:35 -0400 EDT">16 May 2022</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-2 text-neutral-700 transition-transform group-hover:translate-x-[2px] group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0"
+          >
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2023
+            Dylan Powers
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

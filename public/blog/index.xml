@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dylan Powers</title>
+    <link>https://dylanpowers.me/blog/</link>
+    <description>Recent content on Dylan Powers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 May 2022 19:42:35 -0400</lastBuildDate><atom:link href="https://dylanpowers.me/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Coding Interviews Should Be</title>
+      <link>https://dylanpowers.me/blog/what-coding-interviews-should-be/</link>
+      <pubDate>Mon, 16 May 2022 19:42:35 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/what-coding-interviews-should-be/</guid>
+      <description>My vision of what coding interviews should involve.</description>
+    </item>
+    
+    <item>
+      <title>Creating Robust Popovers in React using Material UI</title>
+      <link>https://dylanpowers.me/blog/creating-robust-popovers-in-react/</link>
+      <pubDate>Mon, 21 Feb 2022 18:48:03 -0500</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/creating-robust-popovers-in-react/</guid>
+      <description>A tutorial on creating robust popovers using Material UI.</description>
+    </item>
+    
+    <item>
+      <title>My 2021 Work From Home Setup</title>
+      <link>https://dylanpowers.me/blog/my-2021-work-from-home-setup/</link>
+      <pubDate>Sun, 22 Aug 2021 21:18:51 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/my-2021-work-from-home-setup/</guid>
+      <description>An overview of my current desk setup</description>
+    </item>
+    
+    <item>
+      <title>When to Use useCallback</title>
+      <link>https://dylanpowers.me/blog/when-to-use-usecallback/</link>
+      <pubDate>Sun, 15 Aug 2021 21:10:54 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/when-to-use-usecallback/</guid>
+      <description>When to actually use the useCallback function in React</description>
+    </item>
+    
+    <item>
+      <title>Essential NPM Packages for React Beginners</title>
+      <link>https://dylanpowers.me/blog/essential-npm-packages-for-react-beginners/</link>
+      <pubDate>Sun, 08 Aug 2021 16:20:12 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/essential-npm-packages-for-react-beginners/</guid>
+      <description>A collection of NPM packages which comprise an excellent toolset for beginners.</description>
+    </item>
+    
+    <item>
+      <title>Using Context to Prevent Unnecessary Re Renders</title>
+      <link>https://dylanpowers.me/blog/using-context-to-prevent-unnecessary-re-renders/</link>
+      <pubDate>Sun, 09 May 2021 22:49:47 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/using-context-to-prevent-unnecessary-re-renders/</guid>
+      <description>Using React&amp;rsquo;s Context API to prevent unnecessary re-renders in React applications.</description>
+    </item>
+    
+    <item>
+      <title>Redux Without Redux: How to Create Redux-like Functionality Using React</title>
+      <link>https://dylanpowers.me/blog/redux-without-redux-how-to-create-redux-like-functionality-using-react/</link>
+      <pubDate>Tue, 02 Feb 2021 21:03:31 -0500</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/redux-without-redux-how-to-create-redux-like-functionality-using-react/</guid>
+      <description>Create a simple Redux-like module using pure React</description>
+    </item>
+    
+    <item>
+      <title>Protected Routes in React using React-Router-Dom</title>
+      <link>https://dylanpowers.me/blog/protected-routes-in-react/</link>
+      <pubDate>Tue, 08 Sep 2020 10:49:45 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/protected-routes-in-react/</guid>
+      <description>A short tutorial on how to protect routes using React-Router-Dom.</description>
+    </item>
+    
+    <item>
+      <title>How to Use React-Redux-Firebase</title>
+      <link>https://dylanpowers.me/blog/how-to-use-react-redux-firebase/</link>
+      <pubDate>Wed, 24 Jun 2020 10:25:29 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/how-to-use-react-redux-firebase/</guid>
+      <description>A short tutorial on how to use this really cool package bringing together the best of React, Redux, and Firebase.</description>
+    </item>
+    
+    <item>
+      <title>Striking the Balance: Development in a Fast-Moving Startup</title>
+      <link>https://dylanpowers.me/blog/striking-the-balance-development-in-a-fast-moving-startup/</link>
+      <pubDate>Sun, 09 Feb 2020 18:55:28 -0500</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/striking-the-balance-development-in-a-fast-moving-startup/</guid>
+      <description>Perhaps made most famous by Facebook&amp;rsquo;s &amp;ldquo;Move Fast, Break Things&amp;rdquo; mantra, the philosophy of iterating extremely quickly has become proliferate in the tech world.</description>
+    </item>
+    
+    <item>
+      <title>Tips for a Summer in New York</title>
+      <link>https://dylanpowers.me/blog/tips-for-a-summer-in-new-york/</link>
+      <pubDate>Tue, 27 Aug 2019 17:25:06 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/tips-for-a-summer-in-new-york/</guid>
+      <description>This past summer I worked at Yext in New York City.</description>
+    </item>
+    
+    <item>
+      <title>Books I Read This Summer</title>
+      <link>https://dylanpowers.me/blog/books-i-read-this-summer/</link>
+      <pubDate>Thu, 15 Aug 2019 13:33:00 -0600</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/books-i-read-this-summer/</guid>
+      <description>One of my favorite things about the summers is how much time I have to catch up on reading.</description>
+    </item>
+    
+    <item>
+      <title>Lessons I Learned as an Intern</title>
+      <link>https://dylanpowers.me/blog/lessons-i-learned-as-an-intern/</link>
+      <pubDate>Tue, 13 Aug 2019 13:49:31 -0600</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/lessons-i-learned-as-an-intern/</guid>
+      <description>I’m about to finish up my internship as a Software Engineer Intern at Yext in New York City (HQ).</description>
+    </item>
+    
+    <item>
+      <title>Extensions in Swift</title>
+      <link>https://dylanpowers.me/blog/extensions-in-swift/</link>
+      <pubDate>Tue, 13 Aug 2019 13:25:02 -0600</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/extensions-in-swift/</guid>
+      <description>Today we’re going to talk about what I think is Swift’s coolest feature — extensions.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>useFirebaseConnect on Dylan Powers</title>
+    <link>https://dylanpowers.me/tags/usefirebaseconnect/</link>
+    <description>Recent content in useFirebaseConnect on Dylan Powers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Jun 2020 10:25:29 -0400</lastBuildDate><atom:link href="https://dylanpowers.me/tags/usefirebaseconnect/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Use React-Redux-Firebase</title>
+      <link>https://dylanpowers.me/blog/how-to-use-react-redux-firebase/</link>
+      <pubDate>Wed, 24 Jun 2020 10:25:29 -0400</pubDate>
+      
+      <guid>https://dylanpowers.me/blog/how-to-use-react-redux-firebase/</guid>
+      <description>A short tutorial on how to use this really cool package bringing together the best of React, Redux, and Firebase.</description>
+    </item>
+    
+  </channel>
+</rss>
