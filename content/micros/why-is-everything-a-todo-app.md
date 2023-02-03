@@ -1,5 +1,6 @@
 ---
 title: Why is everything a todo list app?
+tags: [Apollo, GraphQL, ChatGPT]
 date: 2023-01-24
 ---
 
