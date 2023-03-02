@@ -4,15 +4,13 @@ tags: [Java, Testing, Unit, Integration, Acceptance, Sourcegraph]
 date: 2023-03-01
 ---
 
-# Testing Part 1: The Types of Tests
-
 > Why do I need to write tests? I wrote the code so obviously it works.
 
 Well, yeah, everybody knows that. However, writing tests is a fact of life in the software world, and if we’re going to do something, we might as well do it right. In this series I will outline my testing philosophy and the methods I believe to be the best for writing tests.
 
 At it’s core, all software testing can be distilled to one sentence:
 
-> Given an input, assert on an expected output.
+{{<lead>}} Given an input, assert on an expected output. {{</lead>}}
 
 However, as we’ll see, there’s much more to it than that.
 
@@ -46,7 +44,7 @@ When unit testing a function, you provide an input, and assert on what you would
 
 This unit of work needs to be isolated from other units of work that would occur during your function call. Other units of work might include dependencies calling other functions. In this example, a dependency might be some sort of `QueryTokenizer`.
 
-When we say that each unit needs to be tested in isolation, this means that we shouldn’t allow the results of other units to affect this unit. This means we need to [mock](https://circleci.com/blog/how-to-test-software-part-i-mocking-stubbing-and-contract-testing/) those dependencies, a concept I will cover in a later post. However, the main takeaway is that ********************\*\*********************\*\*********************\*\*********************unit tests should never make network calls.********************\*\*********************\*\*********************\*\********************* If you have a unit test talking to a database, then it’s not a unit test anymore.
+When we say that each unit needs to be tested in isolation, this means that we shouldn’t allow the results of other units to affect this unit. This means we need to [mock](https://circleci.com/blog/how-to-test-software-part-i-mocking-stubbing-and-contract-testing/) those dependencies, a concept I will cover in a later post. However, the main takeaway is that **unit tests should never make network calls.** If you have a unit test talking to a database, then it’s not a unit test anymore.
 
 ## Integration Tests
 
