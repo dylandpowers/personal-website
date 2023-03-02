@@ -1,4 +1,4 @@
-module github.com/dylandpowers/personal-site
+module github.com/dylandpowers/personal-website
 
 go 1.19
 
