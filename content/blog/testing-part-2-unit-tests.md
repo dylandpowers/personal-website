@@ -48,7 +48,7 @@ private static final TokenizedQuery TOKENIZED_QUERY = // ...
 when(queryTokenizer.tokenize(anyString()).thenReturn(TOKENIZED_QUERY);
 ```
 
-If you want to change the return value based on the input, you can use the `[doAnswer()](https://javadoc.io/doc/org.mockito/mockito-core/2.4.0/org/mockito/Mockito.html#12)` API:
+If you want to change the return value based on the input, you can use the [`doAnswer()`](https://javadoc.io/doc/org.mockito/mockito-core/2.4.0/org/mockito/Mockito.html#12) API:
 
 ```java
 doAnswer(invocation -> {
@@ -67,13 +67,13 @@ Note that if you do not mock a function and the underlying code calls it, Mockit
 
 ### Verifying Function Calls
 
-In addition to asserting on the return value of your CUT, you might want to verify that a dependency called some function during invocation of the function in the CUT. For this, Mockito provides the `[verify()](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#verify(T))` function. Much like when mocking the return values, you can also use Hamcrest matchers when verifying what was called, like this:
+In addition to asserting on the return value of your CUT, you might want to verify that a dependency called some function during invocation of the function in the CUT. For this, Mockito provides the [`verify()`](<https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#verify(T)>) function. Much like when mocking the return values, you can also use Hamcrest matchers when verifying what was called, like this:
 
 ```java
 verify(queryTokenizer).tokenize(anyString());
 ```
 
-\***\*\*\*\***However,\***\*\*\*\*** in cases like this I would avoid this line; if the method weren’t stubbed out, it would return `null` and the test would fail anyways. The more common use case for `verify()`, in my opinion, is verifying that some method was **\*\***never**\*\*** called. For example, maybe we don’t want to do this expensive query tokenization operation if part of the input `SearchQuery` is invalid, and bail out immediately. In that case we can use the following:
+_However_, in cases like this I would avoid this line; if the method weren’t stubbed out, it would return `null` and the test would fail anyways. The more common use case for `verify()`, in my opinion, is verifying that some method was _never_ called. For example, maybe we don’t want to do this expensive query tokenization operation if part of the input `SearchQuery` is invalid, and bail out immediately. In that case we can use the following:
 
 ```java
 verify(queryTokenizer, never()).tokenize(anyString());
