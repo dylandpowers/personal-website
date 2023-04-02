@@ -32,11 +32,11 @@ The first type of tests is unit tests, which undoubtedly will be the most by num
 
 ```java
 public class FileMatcher {
-	private final QueryTokenizer queryTokenizer;
+  private final QueryTokenizer queryTokenizer;
 
-	public Set<FileMetada> getMatchingFiles(SearchQuery query) {
-		// ...
-	}
+  public Set<FileMetada> getMatchingFiles(SearchQuery query) {
+    // ...
+  }
 }
 ```
 
@@ -52,10 +52,10 @@ These test integration with other services that your code connects to, typically
 
 ```java
 public class HistoricalQueryStore {
-	private final DbClient db;
+  private final DbClient db;
 
-	public Set<SearchQuery> getPastQueries(long userId) {
-		// ...
+  public Set<SearchQuery> getPastQueries(long userId) {
+    // ...
   }
 }
 ```
