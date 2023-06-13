@@ -11,9 +11,9 @@ I live in New York City and I code for a living.
 
 Since graduating (remotely) in May 2020, I have been writing code and building cool stuff.
 
-### [Addepar](https://addepar.com), November 2021 - Present
+### [Addepar](https://addepar.com), November 2021 - June 2023
 
-Full stack on the billing team. We are making Stripe for wealth managers.
+Full stack on the billing team. Also did some developer tools work.
 
 ### [Yext](https://yext.com), June 2020 - November 2021
 
