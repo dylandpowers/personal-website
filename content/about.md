@@ -11,6 +11,10 @@ I live in New York City and I code for a living.
 
 Since graduating (remotely) in May 2020, I have been writing code and building cool stuff.
 
+### [Assembled](https://www.assembled.com/), August 2023 - Present
+
+Modern workforce management for customer support teams.
+
 ### [Addepar](https://addepar.com), November 2021 - June 2023
 
 Full stack on the billing team. Also did some developer tools work.
