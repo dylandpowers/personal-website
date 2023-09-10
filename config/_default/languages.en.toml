@@ -17,7 +17,7 @@ dateFormat = "2 January 2006"
 [author]
   name = "Dylan Powers"
   image = "img/avatar.png"
-  headline = "It's a-me!"
+  headline = "Software Engineer"
   # bio = "A little bit about you"
   links = [
     { email = "mailto:dylandpowers@gmail.com" }
