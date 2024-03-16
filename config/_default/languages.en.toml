@@ -16,7 +16,7 @@ dateFormat = "2 January 2006"
 
 [author]
   name = "Dylan Powers"
-  image = "img/avatar.png"
+  image = "img/avatar.jpg"
   headline = "Software Engineer"
   # bio = "A little bit about you"
   links = [
