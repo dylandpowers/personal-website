@@ -5,15 +5,13 @@ showDate: false
 showReadingTime: false
 ---
 
-I live in New York City and I code for a living.
+I live in Brooklyn, NY, and I'm originally from Denver, CO.
 
 # Work
 
-Since graduating (remotely) in May 2020, I have been writing code and building cool stuff.
+### [Assembled](https://www.assembled.com/), August 2023 - September 2025
 
-### [Assembled](https://www.assembled.com/), August 2023 - Present
-
-Modern workforce management for customer support teams.
+Modern workforce management for customer support teams. I worked on integrations for my first year before moving over to core infrastructure for my last year and change.
 
 ### [Addepar](https://addepar.com), November 2021 - June 2023
 
@@ -25,8 +23,8 @@ Full stack in the knowledge graph org. Building a single source of truth for bus
 
 # Side
 
-On the side, I build web apps for all sorts of purposes. I write a lot of [React](https://reactjs.org/) and [GraphQL](https://graphql.org/).
+I create sports content on the side. You can find me on [TikTok](https://www.tiktok.com/@dylanpowers43), [Instagram](https://www.instagram.com/dylanpowers43/), and [YouTube](https://www.youtube.com/@dylanpowers43).
 
 # Life
 
-I am a huge Denver sports fan, all across the board. I travel a lot and usually go to a couple EDM festivals every year.
+I like to run (like every other 20-something in NYC). I enjoy gaming, both on my PS5 and around a table playing Dungeons and Dragons with friends.
